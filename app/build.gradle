@@ -91,6 +91,7 @@ dependencies {
     implementation deps.timber
 
     implementation deps.coil.coil
+    implementation deps.mapUtils
 
     testImplementation deps.test.junit5Api
     testRuntimeOnly deps.test.junit5Engine

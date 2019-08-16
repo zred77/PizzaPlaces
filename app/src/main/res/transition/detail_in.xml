@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="together"
+    android:startDelay="200">
+
+    <slide
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:slideEdge="bottom">
+        <targets>
+            <target android:targetId="@+id/scrollingContent" />
+        </targets>
+    </slide>
+    <fade android:fadingMode="fade_in"/>
+</transitionSet>

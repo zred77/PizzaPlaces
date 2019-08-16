@@ -1,6 +1,8 @@
 package com.veresz.pizza.model
 
 import android.os.Parcelable
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.clustering.ClusterItem
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -16,4 +18,15 @@ data class Place(
     val openingHours: List<String>,
     val phone: String,
     val website: String
-) : Parcelable
+) : Parcelable, ClusterItem {
+
+    override fun getSnippet(): String {
+        return ""
+    }
+
+    override fun getTitle(): String {
+        return ""
+    }
+
+    override fun getPosition(): LatLng = LatLng(latitude, longitude)
+}

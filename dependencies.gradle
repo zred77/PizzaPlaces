@@ -115,6 +115,7 @@ ext {
             ],
 
             timber  : "com.jakewharton.timber:timber:${versions.timber}",
+            mapUtils: "com.google.maps.android:android-maps-utils:0.5+",
 
             test    : [
                     junit5Api                  : "org.junit.jupiter:junit-jupiter-api:${versions.test.junit5}",
