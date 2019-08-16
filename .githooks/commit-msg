@@ -1,0 +1,69 @@
+#!/bin/bash
+
+echo -e "--- Checking Commit Message for Correctness ---";
+
+cnt=0
+while IFS='' read -r line || [[ -n "$line" ]]; do
+  cnt=$((cnt+1))
+  length=${#line}
+  if [[ ${cnt} -eq 1 ]]; then
+		# Checking if subject start with lowercase
+		first_char=${line:0:1}
+		if [[ ! ${first_char} =~ [A-Z] ]]; then
+      echo -e "*** Your subject line must start with capital letter ***";
+      exit 1
+    fi
+    # Checking if subject exceeds 50 characters
+    if [[ ${length} -gt 50 ]]; then
+      echo -e "*** Your subject line exceeds 50 characters ***";
+      exit 1
+    fi
+    i=$(($length-1))
+    last_char=${line:$i:1}
+    # Last character must not have a punctuation
+    if [[ ! ${last_char} =~ [0-9a-zA-Z] ]]; then
+      echo -e "*** Last character of the subject line must not have punctuation ***";
+      exit 1
+    fi
+    # Checking if imperative mood used in subject
+    searchstring=" "
+    rest=${line#*${searchstring}}
+    first_space_position=$(( ${#line} - ${#rest} - ${#searchstring} ))
+    if [[ "${first_space_position}" < 1 ]]; then
+      echo -e "*** Subject line too short ***";
+      exit 1
+    fi
+    echo ${first_space_position}
+    first_word=${line:0:first_space_position}
+    echo ${first_word}
+    if [[ "$first_word" == *ing ]]; then
+      echo -e "*** Your subject line must use imperative mood ***";
+      exit 1
+    fi
+  elif [[ ${cnt} -eq 2 ]]; then
+    # Subject must be followed by a blank line
+    if [[ ${length} -ne 0 ]]; then
+      echo -e "*** Your subject line follows a non-empty line. Subject lines should always be followed by a blank line ***";
+      exit 1
+    fi
+  else
+    # Any line in body must not exceed 72 characters
+    if [[ ${length} -gt 72 ]]; then
+      echo -e "*** The line \"$line\" exceeds 72 characters ***";
+      exit 1
+    fi
+  fi
+done < "$1"
+
+##echo -e "\e[32mPHASE TWO. Testing if JIRA reference exists."
+#
+#export MESSAGE=$(<$1)
+#export JIRA_ISSUE_TAG='TDETS-[0-9]+'
+#
+#if [[ $MESSAGE =~ $JIRA_ISSUE_TAG ]]; then
+#  echo -e "\e[32m--- Success. Your commit message is formatted correctly ---";
+  exit 0;
+#fi
+#
+#echo -e "***Oops!*** You forgot to add a JIRA issue number! eg. TDETS-1234 : <Title of Issue etc.>";
+#exit 1;

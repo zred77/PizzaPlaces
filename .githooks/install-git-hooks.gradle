@@ -1,0 +1,14 @@
+tasks.create(name: 'gitExecutableHooks') {
+    Runtime.getRuntime().exec("chmod -R +x .git/hooks/")
+}
+
+task installGitHooks(type: Copy) {
+    from new File(rootProject.rootDir, '.githooks/commit-msg')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+
+    from new File(rootProject.rootDir, '.githooks/pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+}
+
+gitExecutableHooks.dependsOn installGitHooks
+preBuild.dependsOn gitExecutableHooks

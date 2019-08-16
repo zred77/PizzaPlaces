@@ -1,0 +1,113 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "de.mannodermaus.android-junit5"
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.veresz.pizza"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
+        multiDexEnabled true
+        buildConfigField "String", "PIZZA_BASE_URL", "\"https://pizzaplaces.free.beeceptor.com/\""
+        manifestPlaceholders = [maps_api_key: properties.getProperty("maps.api.key") ]
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+        debug {
+            minifyEnabled false
+            zipAlignEnabled false
+            aaptOptions.cruncherEnabled = false
+            ext.alwaysUpdateBuildId = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.kotlin.kotlin
+
+    implementation deps.androidX.appcompat
+    implementation deps.androidX.corektx
+    implementation deps.androidX.constraintlayout
+    implementation deps.androidX.materialComponents
+    implementation deps.androidX.navFragmentKtx
+    implementation deps.androidX.navUiKtx
+    implementation deps.androidX.lifecycleViewModelKtx
+    implementation deps.androidX.fragmentKtx
+    implementation deps.androidX.lifecycleLiveDataKtx
+    implementation deps.androidX.palette
+
+    implementation deps.gms.maps
+
+    implementation deps.dagger.dagger
+    kapt deps.dagger.compiler
+    implementation deps.dagger.android
+    kapt deps.dagger.processor
+
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.moshiConverter
+    implementation deps.retrofit.loggingInterceptor
+    implementation deps.retrofit.converter
+
+    implementation deps.moshi.kotlin
+    kapt deps.moshi.codegen
+
+    implementation deps.timber
+
+    implementation deps.coil.coil
+
+    testImplementation deps.test.junit5Api
+    testRuntimeOnly deps.test.junit5Engine
+    testImplementation deps.test.junit5Params
+    testImplementation deps.test.mockk
+    testImplementation deps.kotlin.coroutine
+    testImplementation deps.test.coroutine
+    testImplementation deps.test.archCore
+
+    androidTestImplementation deps.test.junit5Api
+    androidTestImplementation deps.test.junit5Instrumentation
+    androidTestRuntimeOnly deps.test.junit5Engine
+    androidTestRuntimeOnly deps.test.junit5PlatformRunner
+    androidTestRuntimeOnly deps.test.junit5InstrumentationRunner
+    androidTestImplementation deps.test.androidTestRunner
+    androidTestImplementation deps.test.androidTestEspressoCore
+}
+
+apply from: rootProject.file("ktlint.gradle")
+apply from: rootProject.file(".githooks/install-git-hooks.gradle")
