@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/avatar_size"
+    android:layout_height="@dimen/avatar_size"
+    android:layout_margin="@dimen/spacing_default"
+    android:paddingEnd="@dimen/spacing_default">
+
+    <ImageView
+        android:id="@+id/avatarImage"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:scaleType="centerInside">
+
+    </ImageView>
+</FrameLayout>
