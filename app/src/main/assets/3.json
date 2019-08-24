@@ -1,0 +1,28 @@
+{
+  "id": "3",
+  "name": "Kebec",
+  "phone": "+31 6 46483643",
+  "website": "http://www.kebecpizza.nl/",
+  "formattedAddress": "Tt. Melaniaweg 12, 1033 ST Amsterdam, Netherlands",
+  "city": "Amsterdam",
+  "openingHours": [
+    "Monday: Closed",
+    "Tuesday: 10:30 AM – 9:00 PM",
+    "Wednesday: 10:30 AM – 9:00 PM",
+    "Thursday: 10:30 AM – 9:00 PM",
+    "Friday: 10:30 AM – 9:00 PM",
+    "Saturday: 4:00 – 9:00 PM",
+    "Sunday: 4:00 – 9:00 PM"
+  ],
+  "longitude": 4.8919489,
+  "latitude": 52.4036117,
+  "images": [
+    {
+      "id": "10e258d7-74f1-420b-96b1-697a100c7d9c",
+      "url": "https://www.culy.nl/wp-content/uploads/2014/05/Kebec-restaurant.jpg",
+      "caption": "<a href=\"https://maps.google.com/maps/contrib/100413606320840523537/photos\">Kebec</a>",
+      "expiration": "2018-11-23T00:20:44Z"
+    }
+  ],
+  "friendIds": ["10", "9", "8", "7", "6"]
+}

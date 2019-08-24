@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Iron Man",
+    "avatarUrl": "https://randomuser.me/api/portraits/men/39.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Wonder Woman",
+    "avatarUrl": "https://randomuser.me/api/portraits/women/39.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Spider Man",
+    "avatarUrl": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Cat Woman",
+    "avatarUrl": "https://randomuser.me/api/portraits/women/2.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Bruce Wayne",
+    "avatarUrl": "https://randomuser.me/api/portraits/men/70.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Poison Ivy",
+    "avatarUrl": "https://randomuser.me/api/portraits/women/65.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Bruce Banner",
+    "avatarUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Clark  Kent",
+    "avatarUrl": "https://randomuser.me/api/portraits/men/94.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Pepper  Potts",
+    "avatarUrl": "https://randomuser.me/api/portraits/women/94.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Peter Parker",
+    "avatarUrl": "https://randomuser.me/api/portraits/men/34.jpg"
+  }
+]

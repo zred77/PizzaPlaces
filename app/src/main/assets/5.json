@@ -1,0 +1,29 @@
+{
+  "id": "5",
+  "name": "YamYam Trattoria Pizzeria",
+  "phone": "+31 20 681 5097",
+  "website": "http://www.yamyam.nl/",
+  "formattedAddress": "Frederik Hendrikstraat 88-90, 1052 HZ Amsterdam, Netherlands",
+  "city": "Amsterdam",
+  "openingHours": [
+    "Monday: Closed",
+    "Tuesday: 5:30 – 9:30 PM",
+    "Wednesday: 5:30 – 9:30 PM",
+    "Thursday: 5:30 – 10:00 PM",
+    "Friday: 5:30 – 10:00 PM",
+    "Saturday: 5:30 – 10:00 PM",
+    "Sunday: 5:30 – 9:30 PM"
+  ],
+  "longitude": 4.873432000000001,
+  "latitude": 52.376075,
+  "images": [
+    {
+      "id": "f084c144-d11a-4668-9102-6d37b7b1acef",
+      "url": "https://u.tfstatic.com/restaurant_photos/297/220297/169/612/yamyam-trattoria-pizzeria-restaurantzaal-718a1.jpg",
+      "caption": "<a href=\"https://maps.google.com/maps/contrib/102583669577607503866/photos\">Emanuel Cifuentes</a>",
+      "expiration": "2018-11-23T00:20:44Z"
+    }
+  ],
+
+  "friendIds": ["1", "2", "8", "6", "5"]
+}

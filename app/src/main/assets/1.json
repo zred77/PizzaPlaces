@@ -1,0 +1,28 @@
+{
+  "id": "1",
+  "name": "De Italiaan",
+  "phone": "+31 20 683 6854",
+  "website": "http://deitaliaan.com/",
+  "formattedAddress": "Bosboom Toussaintstraat 29, 1054 AN Amsterdam, Netherlands",
+  "city": "Amsterdam",
+  "openingHours": [
+    "Monday: 5:30 – 10:00 PM",
+    "Tuesday: 5:30 – 10:00 PM",
+    "Wednesday: 5:30 – 10:00 PM",
+    "Thursday: 5:30 – 10:00 PM",
+    "Friday: 5:30 – 10:00 PM",
+    "Saturday: 12:00 – 4:00 PM, 5:30 – 10:00 PM",
+    "Sunday: 12:00 – 4:00 PM, 5:30 – 10:00 PM"
+  ],
+  "longitude": 4.876391399999999,
+  "latitude": 52.36549829999999,
+  "images": [
+    {
+      "id": "14ceafa9-ad8e-4426-9f29-e452fd06e70f",
+      "url": "http://deitaliaan.com/uploads/_photoGalleryFull/316/restaurant_de_italiaan_amsterdam_terras.jpg",
+      "caption": "<a href=\"https://maps.google.com/maps/contrib/104965754628783390085/photos\">B M C van Weeren</a>",
+      "expiration": "2018-11-23T00:20:44Z"
+    }
+  ],
+  "friendIds": ["1", "2", "3", "4", "5"]
+}

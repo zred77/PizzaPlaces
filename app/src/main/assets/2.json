@@ -1,0 +1,28 @@
+{
+  "id": "2",
+  "name": "Eatmosfera",
+  "phone": "+31 20 737 2318",
+  "website": "http://www.eatmosfera.nl/",
+  "formattedAddress": "Korte Reguliersdwarsstraat 8, 1017 BH Amsterdam, Netherlands",
+  "city": "Amsterdam",
+  "openingHours": [
+    "Monday: Closed",
+    "Tuesday: 5:30 – 10:30 PM",
+    "Wednesday: 5:30 – 10:30 PM",
+    "Thursday: 5:30 – 10:30 PM",
+    "Friday: 5:30 – 11:00 PM",
+    "Saturday: 12:00 – 3:30 PM, 6:00 – 11:00 PM",
+    "Sunday: 5:30 – 10:30 PM"
+  ],
+  "longitude": 4.8950852,
+  "latitude": 52.366105,
+  "images": [
+    {
+      "id": "cea251cc-47dc-435c-b39d-7e4231a53e46",
+      "url": "https://media-cdn.tripadvisor.com/media/photo-s/05/43/dd/34/eatmosfera-ristorante.jpg",
+      "caption": "<a href=\"https://maps.google.com/maps/contrib/111078264694581233407/photos\">Go 360</a>",
+      "expiration": "2018-11-23T00:20:44Z"
+    }
+  ],
+  "friendIds": ["4", "6", "7"]
+}

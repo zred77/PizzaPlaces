@@ -1,0 +1,27 @@
+{
+  "id": "4",
+  "name": "La Perla Pizzeria",
+  "website": "http://pizzaperla.nl/",
+  "formattedAddress": "Tweede Tuindwarsstraat 53, 1015 RZ Amsterdam, Netherlands",
+  "city": "Amsterdam",
+  "openingHours": [
+    "Monday: 10:00 AM – 10:00 PM",
+    "Tuesday: 10:00 AM – 10:00 PM",
+    "Wednesday: 10:00 AM – 10:00 PM",
+    "Thursday: 10:00 AM – 10:00 PM",
+    "Friday: 10:00 AM – 10:30 PM",
+    "Saturday: 10:00 AM – 10:30 PM",
+    "Sunday: 12:00 – 10:00 PM"
+  ],
+  "longitude": 4.8820148,
+  "latitude": 52.37704009999999,
+  "images": [
+    {
+      "id": "35d8a673-a2df-47c6-b36d-34177e8614d5",
+      "url": "https://media-cdn.tripadvisor.com/media/photo-s/03/1b/65/41/la-perla.jpg",
+      "caption": "<a href=\"https://maps.google.com/maps/contrib/109205427360056198512/photos\">Behzad Ghaffarian</a>",
+      "expiration": "2018-11-23T00:20:44Z"
+    }
+  ],
+  "friendIds": ["10", "2", "5", "8", "7"]
+}
