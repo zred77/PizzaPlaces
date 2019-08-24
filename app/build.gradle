@@ -20,8 +20,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
         multiDexEnabled true
-        buildConfigField "String", "PIZZA_BASE_URL", "\"https://pizzaplaces.free.beeceptor.com/\""
         manifestPlaceholders = [maps_api_key: properties.getProperty("maps.api.key") ]
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
 
     }
     buildTypes {
@@ -38,6 +46,17 @@ android {
         }
     }
 
+    flavorDimensions "api"
+    productFlavors {
+        beeceptor {
+            dimension "api"
+            buildConfigField "String", "PIZZA_BASE_URL", "\"https://pizzaplaces.free.beeceptor.com/\""
+        }
+        mockable {
+            dimension "api"
+            buildConfigField "String", "PIZZA_BASE_URL", "\"http://demo4327201.mockable.io/pizza-api/\""
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -72,6 +91,9 @@ dependencies {
     implementation deps.androidX.fragmentKtx
     implementation deps.androidX.lifecycleLiveDataKtx
     implementation deps.androidX.palette
+    implementation deps.androidX.room
+    implementation deps.androidX.roomKtx
+    kapt deps.androidX.roomCompiler
 
     implementation deps.gms.maps
 
@@ -100,6 +122,7 @@ dependencies {
     testImplementation deps.kotlin.coroutine
     testImplementation deps.test.coroutine
     testImplementation deps.test.archCore
+    testImplementation deps.test.room
 
     androidTestImplementation deps.test.junit5Api
     androidTestImplementation deps.test.junit5Instrumentation

@@ -1,5 +1,6 @@
 package com.veresz.pizza.di
 
+import com.squareup.moshi.Moshi
 import com.veresz.pizza.BuildConfig
 import com.veresz.pizza.api.PizzaService
 import dagger.Module
@@ -20,12 +21,17 @@ class NetworkModule {
     }
 
     @Provides
-    fun pizzaService(client: OkHttpClient): PizzaService {
+    fun pizzaService(moshi: Moshi, client: OkHttpClient): PizzaService {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.PIZZA_BASE_URL)
             .client(client)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(PizzaService::class.java)
     }
+
+//    @Provides
+//    fun provideMockPizzaService(context: Context, moshi: Moshi): PizzaService {
+//        return PizzaServiceImpl(context, moshi)
+//    }
 }
