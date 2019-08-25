@@ -48,7 +48,6 @@ import kotlinx.android.synthetic.main.fragment_detail.rootLayout
 import kotlinx.android.synthetic.main.fragment_detail.toolbar
 import kotlinx.android.synthetic.main.fragment_detail.toolbar_layout
 import kotlinx.android.synthetic.main.item_avatar.view.avatarImage
-import kotlinx.android.synthetic.main.item_maplist.view.name
 
 class DetailFragment : DaggerFragment() {
 
