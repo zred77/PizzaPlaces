@@ -6,5 +6,10 @@
     <dimen name="app_bar_height">240dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="cardview_radius">8dp</dimen>
+    <dimen name="logo_size">48dp</dimen>
+    <dimen name="titlebar_elevation">2dp</dimen>
+    <dimen name="avatar_size">32dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
 
 </resources>

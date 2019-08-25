@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollingContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_detail">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_double" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_double" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="2.8"
+            app:layout_constraintBottom_toBottomOf="@+id/distance"
+            app:layout_constraintStart_toStartOf="@id/guideStart"
+            app:layout_constraintTop_toTopOf="@id/distance" />
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default"
+            android:layout_marginTop="@dimen/spacing_double"
+            app:layout_constraintStart_toEndOf="@id/ratingBar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1.3 km to the center" />
+
+        <LinearLayout
+            android:id="@+id/friendsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            tools:background="@color/colorAccent"
+            tools:layout_height="48dp"
+            tools:layout_width="200dp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:ellipsize="end"
+            android:lines="5"
+            app:layout_constraintEnd_toEndOf="@+id/guideEnd"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/friendsLayout"
+            tools:text="@tools:sample/lorem/random" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:background="@color/divider"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/guideEnd"
+            app:layout_constraintStart_toStartOf="@id/guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/opening"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/guideEnd"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            tools:maxLines="4"
+            tools:text="@tools:sample/lorem/random"
+            tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/readMore"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/read_more"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@id/guideStart"
+            app:layout_constraintTop_toBottomOf="@id/opening" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/readMore" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookNow"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/book_now"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/guideEnd"
+            app:layout_constraintStart_toStartOf="@+id/guideStart"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

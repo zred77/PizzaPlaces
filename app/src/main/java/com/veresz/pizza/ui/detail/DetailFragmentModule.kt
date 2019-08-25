@@ -7,12 +7,13 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
+import javax.inject.Named
 
 @Module
 internal abstract class DetailFragmentModule {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [DetailFragmentModule.ProviderModule::class])
+    @ContributesAndroidInjector(modules = [ProviderModule::class])
     abstract fun detailFragment(): DetailFragment
 
     @Module(includes = [ProviderModule.BindModule::class])
@@ -27,6 +28,7 @@ internal abstract class DetailFragmentModule {
         internal abstract class BindModule {
 
             @Binds
+            @Named("fragment")
             abstract fun bindViewModelProviderFactory(factory: DetailViewModel.Factory): ViewModelProvider.Factory
         }
     }

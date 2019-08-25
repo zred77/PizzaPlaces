@@ -1,6 +1,6 @@
 package com.veresz.pizza.di
 
-import com.veresz.pizza.ui.MainActivityModule
+import com.veresz.pizza.ui.main.MainActivityModule
 import dagger.Module
 
 @Module(includes = [MainActivityModule::class])
