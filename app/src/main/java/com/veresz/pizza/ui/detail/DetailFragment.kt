@@ -48,6 +48,7 @@ import kotlinx.android.synthetic.main.fragment_detail.rootLayout
 import kotlinx.android.synthetic.main.fragment_detail.toolbar
 import kotlinx.android.synthetic.main.fragment_detail.toolbar_layout
 import kotlinx.android.synthetic.main.item_avatar.view.avatarImage
+import kotlinx.android.synthetic.main.item_maplist.view.name
 
 class DetailFragment : DaggerFragment() {
 
@@ -100,15 +101,17 @@ class DetailFragment : DaggerFragment() {
 
     private fun addFriendsImages(place: Place?, friends: Map<String, Friend>) {
         var avatar: View
+        friendsLayout.removeAllViews()
         place?.let { place ->
-            place.friendIds.forEach {
+            place.friendIds.forEach { friendId ->
                 avatar = View.inflate(context, R.layout.item_avatar, null)
-                friends[it]?.let { friend ->
-                    avatar.avatarImage.load(friend.avatarUrl) {
-                        placeholder(R.drawable.avatar_placeholder)
-                        error(R.drawable.avatar_placeholder)
-                        transformations(CircleCropTransformation())
-                    }
+                avatar.avatarImage.load(friends[friendId]?.avatarUrl ?: "") {
+                    placeholder(R.drawable.avatar_placeholder)
+                    error(R.drawable.avatar_placeholder)
+                    transformations(CircleCropTransformation())
+                    crossfade(true)
+                }
+                friends[friendId]?.let { friend ->
                     avatar.avatarImage.setOnClickListener {
                         Toast.makeText(context, friend.name, Toast.LENGTH_SHORT).show()
                     }
@@ -143,6 +146,7 @@ class DetailFragment : DaggerFragment() {
             fab.setOnClickListener {
                 Toast.makeText(context, R.string.mark_as_favourite, Toast.LENGTH_SHORT).show()
             }
+            addFriendsImages(viewModel.place.value, viewModel.friends.value.orEmpty())
         }
     }
 
