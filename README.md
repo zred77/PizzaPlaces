@@ -16,3 +16,10 @@ Libraries/solutions used in app:
 
 Add your own google maps api key to local.properties with the following key:
 `maps.api.key`
+
+
+Projcect config contains two flavour:
+- beeceptor
+- mockable
+
+to easily change between api endpoinds.
