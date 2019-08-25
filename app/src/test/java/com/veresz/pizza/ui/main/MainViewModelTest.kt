@@ -24,7 +24,7 @@ class MainViewModelTest {
     @MockK
     lateinit var repository: PlaceRepository
 
-    lateinit var subject: MainViewModel
+    private lateinit var subject: MainViewModel
 
     private val testDispatcher = TestCoroutineDispatcher()
 

@@ -22,7 +22,7 @@ class FriendRepositoryImplTest {
     @MockK
     lateinit var friendDao: FriendDao
 
-    lateinit var subject: FriendRepository
+    private lateinit var subject: FriendRepository
 
     private val friendList: List<Friend> = listOf(mockk())
 

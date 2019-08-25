@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="spacing_default">8dp</dimen>
-
     <dimen name="spacing_double">16dp</dimen>
+
     <dimen name="app_bar_height">240dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
     <dimen name="cardview_radius">8dp</dimen>
     <dimen name="logo_size">48dp</dimen>
     <dimen name="titlebar_elevation">2dp</dimen>

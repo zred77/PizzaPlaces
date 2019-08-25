@@ -55,7 +55,7 @@ open class DetailFragment : BaseFragment() {
 
     @field:[Inject Named("fragment")]
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    internal val viewModel by viewModels<DetailViewModel> { viewModelFactory }
+    private val viewModel by viewModels<DetailViewModel> { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,32 +121,30 @@ open class DetailFragment : BaseFragment() {
     }
 
     private fun updateUI(place: Place) {
-        with(place) {
-            loadImage(this.images)
-            ratingBar.rating = (0..5).random().toFloat()
-            distance.text = getString(R.string.distance, distanceFrom.toString())
-            description.text = getString(R.string.description)
-            readMore.setOnClickListener {
-                TransitionManager.beginDelayedTransition(rootLayout)
-                if (description.maxLines == 5) {
-                    description.maxLines = Integer.MAX_VALUE
-                    divider1.isVisible = true
-                    opening.isVisible = true
-                } else {
-                    description.maxLines = 5
-                    divider1.isVisible = false
-                    opening.isVisible = false
-                }
+        loadImage(place.images)
+        ratingBar.rating = (0..5).random().toFloat()
+        distance.text = getString(R.string.distance, place.distanceFrom.toString())
+        description.text = getString(R.string.description)
+        readMore.setOnClickListener {
+            TransitionManager.beginDelayedTransition(rootLayout)
+            if (description.maxLines == 5) {
+                description.maxLines = Integer.MAX_VALUE
+                divider1.isVisible = true
+                opening.isVisible = true
+            } else {
+                description.maxLines = 5
+                divider1.isVisible = false
+                opening.isVisible = false
             }
-            opening.text = openingHours.joinToString("\n")
-            bookNow.setOnClickListener {
-                Toast.makeText(context, R.string.book_now, Toast.LENGTH_SHORT).show()
-            }
-            fab.setOnClickListener {
-                Toast.makeText(context, R.string.mark_as_favourite, Toast.LENGTH_SHORT).show()
-            }
-            addFriendsImages(viewModel.place.value, viewModel.friends.value.orEmpty())
         }
+        opening.text = place.openingHours.joinToString("\n")
+        bookNow.setOnClickListener {
+            Toast.makeText(context, R.string.book_now, Toast.LENGTH_SHORT).show()
+        }
+        fab.setOnClickListener {
+            Toast.makeText(context, R.string.mark_as_favourite, Toast.LENGTH_SHORT).show()
+        }
+        addFriendsImages(viewModel.place.value, viewModel.friends.value.orEmpty())
     }
 
     private fun loadImage(images: List<Image>) {

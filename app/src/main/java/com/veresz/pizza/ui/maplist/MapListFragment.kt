@@ -20,7 +20,6 @@ import com.veresz.pizza.ui.detail.DetailFragment
 import com.veresz.pizza.ui.main.MainViewModel
 import com.veresz.pizza.util.SnapHelperOneByOne
 import com.veresz.pizza.util.attachSnapHelperWithListener
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 import javax.inject.Named
 import kotlinx.android.synthetic.main.fragment_map_list.bottomSheet

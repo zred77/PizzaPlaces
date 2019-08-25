@@ -86,8 +86,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             if (clusterManager == null) {
                 clusterManager = ClusterManager(context, googleMap)
                 clusterManager?.let {
-                    it.setOnClusterItemClickListener {
-                        activityViewModel.setSelectedPoint(it)
+                    it.setOnClusterItemClickListener { place ->
+                        activityViewModel.setSelectedPoint(place)
                         showMapList()
                         true
                     }

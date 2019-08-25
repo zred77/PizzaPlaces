@@ -24,7 +24,7 @@ class PlaceRepositoryImplTest {
     @MockK
     lateinit var placeDao: PlaceDao
 
-    lateinit var subject: PlaceRepository
+    private lateinit var subject: PlaceRepository
 
     private val placeList: List<Place> = listOf(mockk())
 
