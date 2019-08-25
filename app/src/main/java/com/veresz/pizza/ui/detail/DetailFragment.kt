@@ -28,10 +28,10 @@ import androidx.transition.TransitionManager
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.veresz.pizza.R
+import com.veresz.pizza.base.BaseFragment
 import com.veresz.pizza.model.Friend
 import com.veresz.pizza.model.Image
 import com.veresz.pizza.model.Place
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 import javax.inject.Named
 import kotlinx.android.synthetic.main.detail_content.bookNow
@@ -49,13 +49,13 @@ import kotlinx.android.synthetic.main.fragment_detail.toolbar
 import kotlinx.android.synthetic.main.fragment_detail.toolbar_layout
 import kotlinx.android.synthetic.main.item_avatar.view.avatarImage
 
-class DetailFragment : DaggerFragment() {
+open class DetailFragment : BaseFragment() {
 
     private var fabAnimator: Animator? = null
 
     @field:[Inject Named("fragment")]
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel by viewModels<DetailViewModel> { viewModelFactory }
+    internal val viewModel by viewModels<DetailViewModel> { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,7 +124,7 @@ class DetailFragment : DaggerFragment() {
         with(place) {
             loadImage(this.images)
             ratingBar.rating = (0..5).random().toFloat()
-            distance.text = getString(R.string.distance, rating.toString())
+            distance.text = getString(R.string.distance, distanceFrom.toString())
             description.text = getString(R.string.description)
             readMore.setOnClickListener {
                 TransitionManager.beginDelayedTransition(rootLayout)

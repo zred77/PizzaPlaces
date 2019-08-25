@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionInflater
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.veresz.pizza.R
+import com.veresz.pizza.base.BaseFragment
 import com.veresz.pizza.ui.detail.DetailFragment
 import com.veresz.pizza.ui.main.MainViewModel
 import com.veresz.pizza.util.SnapHelperOneByOne
@@ -26,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_map_list.bottomSheet
 import kotlinx.android.synthetic.main.fragment_map_list.recyclerView
 import kotlinx.android.synthetic.main.fragment_map_list.rootLayout
 
-class MapListFragment : DaggerFragment() {
+class MapListFragment : BaseFragment() {
 
     @field:[Inject Named("activity")]
     lateinit var activityViewModelFactory: ViewModelProvider.Factory

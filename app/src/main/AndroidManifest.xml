@@ -32,6 +32,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${maps_api_key}"/>
+
+        <uses-library android:name="android.test.runner"
+            android:required="false" />
+        <uses-library android:name="android.test.base"
+            android:required="false" />
+        <uses-library android:name="android.test.mock"
+            android:required="false" />
     </application>
 
 </manifest>

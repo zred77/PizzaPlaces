@@ -28,6 +28,7 @@ data class Place(
 ) : Parcelable, ClusterItem {
 
     @[IgnoredOnParcel Ignore] val rating: Float = (0..50).random().toFloat().div(10f)
+    @[IgnoredOnParcel Ignore] val distanceFrom: Float = (5..100).random().toFloat().div(10f)
 
     override fun getSnippet(): String {
         return ""

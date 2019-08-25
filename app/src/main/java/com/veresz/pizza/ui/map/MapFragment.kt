@@ -22,17 +22,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
 import com.google.maps.android.clustering.ClusterManager
 import com.veresz.pizza.R
+import com.veresz.pizza.base.BaseFragment
 import com.veresz.pizza.model.Place
 import com.veresz.pizza.ui.ViewState
 import com.veresz.pizza.ui.main.MainViewModel
 import com.veresz.pizza.ui.maplist.MapListFragment
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 import javax.inject.Named
 import kotlinx.android.synthetic.main.fragment_map.rootLayout
 import kotlinx.android.synthetic.main.fragment_map.titleBar
 
-class MapFragment : DaggerFragment(), OnMapReadyCallback {
+class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private val AMSTERDAM = LatLng(52.386050, 4.888466)
     private val DEFAULT_ZOOMLEVEL = 13f
