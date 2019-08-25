@@ -23,8 +23,9 @@ class MainViewModel(
     }
     val pizzaPlaces: LiveData<List<Place>> = pizzaPlacesLiveData
     val lastAndCurrentSelectedPlace = MutableLiveData<Pair<Place?, Place?>>()
+    val viewState: LiveData<ViewState> = viewStateLiveData
 
-    private fun getAllPlaces(refresh: Boolean = false) {
+    fun getAllPlaces(refresh: Boolean = false) {
         viewModelScope.launch {
             runCatching {
                 viewStateLiveData.value = ViewState.Loading

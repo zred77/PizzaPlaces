@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Pizza</string>
-    <string name="error_general">Ooops…</string>
+    <string name="error_general">Error retrieving data…</string>
     <string name="map_title">Best pizza in town</string>
     <string name="read_more">Read more</string>
     <string name="book_now">Book now</string>
     <string name="distance">%1$s km to the center</string>
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie sit amet justo sit amet luctus. Integer feugiat ligula nec pellentesque pharetra. Nam eleifend lectus sed ultricies volutpat. Proin egestas tempus lacinia. Vivamus hendrerit magna sed nulla bibendum, quis suscipit leo porttitor. Nam tincidunt condimentum ex id faucibus. Nunc gravida ex magna, sed semper diam mattis a. Phasellus hendrerit mi ligula, at placerat libero tristique non. Etiam id accumsan arcu, ac luctus augue. Etiam tincidunt convallis ex, ut egestas ex porttitor ac. Ut vel cursus ante. In consectetur suscipit erat, ac maximus odio.</string>
     <string name="mark_as_favourite">Mark as favourite</string>
+    <string name="retry">Retry</string>
 </resources>

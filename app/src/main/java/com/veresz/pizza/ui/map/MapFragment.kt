@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
-import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
@@ -20,6 +19,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.snackbar.Snackbar
 import com.google.maps.android.clustering.ClusterManager
 import com.veresz.pizza.R
 import com.veresz.pizza.model.Place
@@ -67,6 +67,7 @@ class MapFragment : DaggerFragment(), OnMapReadyCallback {
         setWindowInsets()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        observeState()
     }
 
     override fun onMapReady(readyMap: GoogleMap) {
@@ -160,10 +161,18 @@ class MapFragment : DaggerFragment(), OnMapReadyCallback {
             }
             clusterManager!!.cluster()
         })
-        viewModel.viewState.observe(this, Observer {
+    }
+
+    private fun observeState() {
+        activityViewModel.viewState.observe(this, Observer {
             when (it) {
                 is ViewState.Error -> {
-                    Toast.makeText(context, it.throwable.message, Toast.LENGTH_LONG).show()
+                    Snackbar.make(rootLayout, R.string.error_general, Snackbar.LENGTH_INDEFINITE)
+                        .setAction(R.string.retry) {
+                            activityViewModel.getAllPlaces(true)
+                        }
+                        .setAnimationMode(Snackbar.ANIMATION_MODE_FADE)
+                        .show()
                 }
             }
         })
